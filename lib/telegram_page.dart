@@ -47,17 +47,42 @@ class _MyTelegramState extends State<MyTelegram> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 37,
-                width: 37,
-                margin: const EdgeInsets.only(left: 24, top: 10),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/yellow.png'),
+              Stack(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: const Color(0xff133FDB), width: 2),
+                      shape: BoxShape.circle,
+                    ),
+                    margin: const EdgeInsets.only(top: 10, left: 24),
+                    height: 58,
+                    width: 58,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              'https://i.pinimg.com/736x/33/a1/1e/33a11ec7801981f093f10698e251f954.jpg'),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  Positioned(
+                    top: 13,
+                    left: 70,
+                    child: Container(
+                      height: 13,
+                      width: 13,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: const Color(0xffDB1337),
+                          border: Border.all(color: Colors.white, width: 2)),
+                    ),
+                  ),
+                ],
               ),
               Container(
                 margin: const EdgeInsets.only(left: 83, top: 10),

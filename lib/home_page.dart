@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffE5E5E5),
       body: SafeArea(
         child: Stack(children: [
           const Positioned(
@@ -86,19 +87,37 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(children: [
               Stack(children: [
                 Container(
-                  decoration: const BoxDecoration(
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    border:
+                        Border.all(color: const Color(0xff133FDB), width: 2),
                     shape: BoxShape.circle,
                   ),
                   margin: const EdgeInsets.only(top: 63, left: 24),
                   height: 58,
                   width: 58,
-                  child: const Image(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                      'https://logobank.uz:8005/media/logos_png/click-01.png',
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            'https://i.pinimg.com/736x/33/a1/1e/33a11ec7801981f093f10698e251f954.jpg'),
+                      ),
                     ),
                   ),
-                )
+                ),
+                Positioned(
+                    top: 66,
+                    left: 70,
+                    child: Container(
+                      height: 13,
+                      width: 13,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: const Color(0xffDB1337),
+                          border: Border.all(color: Colors.white, width: 2)),
+                    ))
               ]),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,6 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: list.length,
                 itemBuilder: (context, index) {
                   return Container(
+                    padding: const EdgeInsets.all(16),
                     margin: const EdgeInsets.only(left: 24, right: 24, top: 16),
                     height: 76,
                     decoration: const BoxDecoration(
@@ -220,16 +240,41 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                     ),
                     child: Row(children: [
-                      Column(children: [
-                        Container(
-                          child: Text(list[index].title),
-                        ),
-                        Container(
-                          child: Text(list[index].data),
-                        ),
-                      ]),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text(
+                                list[index].title,
+                                style: const TextStyle(
+                                  color: Color(0xff333333),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                list[index].data,
+                                style: const TextStyle(
+                                  color: Color(0xff333333),
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          ]),
                       Container(
-                        child: Text(list[index].price),
+                        margin: const EdgeInsets.only(left: 120),
+                        child: Text(
+                          list[index].price,
+                          style: const TextStyle(
+                            color: Color(0xff333333),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
+                        ),
                       ),
                     ]),
                   );
